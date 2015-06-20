@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Euler
 {
@@ -15,10 +16,16 @@ namespace Euler
             CollectionAssert.AreEqual(expected, FibonacciNumbers.NumbersBelow(90));
         }
 
-        [TestMethod, Ignore]
+        [TestMethod]
         public void SumEvensBelow_90_Returns44()
         {
             Assert.AreEqual(44, FibonacciNumbers.SumEvensBelow(90));
+        }
+
+        [TestMethod]
+        public void SumEvenBelow_4000000_ReturnsCorrectNumber()
+        {
+            Assert.AreEqual(4613732, FibonacciNumbers.SumEvensBelow(4000000));
         }
     }
 
@@ -40,7 +47,7 @@ namespace Euler
             var sum = 0;
 
             var fibs = NumbersBelow(upperBound);
-
+            sum = fibs.Where(f => f % 2 == 0).Sum();
             return sum;
         }
 
