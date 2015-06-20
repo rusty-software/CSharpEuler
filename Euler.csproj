@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="001.MultiplesOf3And5.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="002.EvenFibonacciNumbers.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
