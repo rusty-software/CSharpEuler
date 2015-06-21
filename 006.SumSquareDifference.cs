@@ -19,10 +19,21 @@ namespace Euler
         {
             Assert.AreEqual(3025, SquareSums.SquareOfSums(1, 10));
         }
+
+        [TestMethod]
+        public void SumAndSquareDifference_1And10_Returns2640()
+        {
+            Assert.AreEqual(2640, SquareSums.SumAndSquareDifference(1, 10));
+        }
     }
 
     internal static class SquareSums
     {
+        internal static long SumAndSquareDifference(int lowerBound, int upperBound)
+        {
+            return SquareOfSums(1, 10) - SumOfSquares(1, 10);
+        }
+
         internal static long SumOfSquares(int lowerBound, int upperBound)
         {
             var range = Enumerable.Range(lowerBound, upperBound);
