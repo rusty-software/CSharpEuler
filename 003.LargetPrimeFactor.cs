@@ -1,7 +1,5 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using System.Collections;
 using System.Linq;
 
 namespace Euler
@@ -9,10 +7,18 @@ namespace Euler
     [TestClass]
     public class PrimeCalculatorTests
     {
+        [TestMethod, Ignore]
+        public void PrimeFactors_600851475143_ReturnsValues()
+        {
+            var expected = new List<long>();
+            var factors = PrimeCalculator.FactorsOf(600851475143);
+            CollectionAssert.AreEqual(expected, factors);
+        }
+
         [TestMethod]
         public void PrimeFactors_13195_ReturnsValues()
         {
-            var expected = new List<int> { 5, 7, 13, 29 };
+            var expected = new List<long> { 5, 7, 13, 29 };
             CollectionAssert.AreEqual(expected, PrimeCalculator.FactorsOf(13195));
         }
 
@@ -31,25 +37,25 @@ namespace Euler
         [TestMethod]
         public void IsPrime_Primes_IsAllTrue()
         {
-            var primes = new List<int> { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47 };
+            var primes = new List<long> { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47 };
             Assert.IsTrue(primes.All(p => PrimeCalculator.IsPrime(p)));
         }
 
         [TestMethod]
         public void IsPrime_NonPrimes_IsAllFalse()
         {
-            var nonPrimes = new List<int> { 4, 6, 8, 10, 21, 27, 33, 39, 49, 100, 1000 };
+            var nonPrimes = new List<long> { 4, 6, 8, 10, 21, 27, 33, 39, 49, 100, 1000 };
             Assert.IsFalse(nonPrimes.Any(np => PrimeCalculator.IsPrime(np)));
         }
     }
 
     internal static class PrimeCalculator
     {
-        private static List<int> primes = new List<int> { 2 };
+        private static List<long> primes = new List<long> { 2 };
 
-        internal static List<int> FactorsOf(int num)
+        internal static List<long> FactorsOf(long num)
         {
-            var factors = new List<int>();
+            var factors = new List<long>();
             if (num <= 1)
             {
                 return factors;
@@ -66,7 +72,7 @@ namespace Euler
             return factors;
         }
 
-        internal static bool IsPrime(int num)
+        internal static bool IsPrime(long num)
         {
             if (num <= 1)
             {
