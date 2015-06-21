@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="002.EvenFibonacciNumbers.cs" />
     <Compile Include="003.LargetPrimeFactor.cs" />
+    <Compile Include="004.PalindromeProduct.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
