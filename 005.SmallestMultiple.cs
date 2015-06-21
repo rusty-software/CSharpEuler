@@ -14,11 +14,19 @@ namespace Euler
 
             Assert.AreEqual(2520, product);
         }
+
+        [TestMethod]
+        public void Between_1And20_ReturnsValue()
+        {
+            var product = SmallestMultiple.Between(1, 20);
+
+            Assert.AreEqual(232792560, product);
+        }
     }
 
     internal static class SmallestMultiple
     {
-        internal static int Between(int lowerBound, int upperBound)
+        internal static long Between(int lowerBound, int upperBound)
         {
             var range = Enumerable.Range(lowerBound, upperBound);
             var increment = upperBound;
