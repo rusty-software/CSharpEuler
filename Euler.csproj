@@ -56,6 +56,7 @@
     <Compile Include="003.LargetPrimeFactor.cs" />
     <Compile Include="004.PalindromeProduct.cs" />
     <Compile Include="005.SmallestMultiple.cs" />
+    <Compile Include="006.SumSquareDifference.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
