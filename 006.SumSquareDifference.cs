@@ -13,6 +13,12 @@ namespace Euler
         {
             Assert.AreEqual(385, SquareSums.SumOfSquares(1, 10));
         }
+
+        [TestMethod]
+        public void SquareOfSums_1And10_Returns3025()
+        {
+            Assert.AreEqual(3025, SquareSums.SquareOfSums(1, 10));
+        }
     }
 
     internal static class SquareSums
@@ -26,6 +32,13 @@ namespace Euler
                 squares.Add(i * i);
             }
             return squares.Sum();
+        }
+
+        internal static long SquareOfSums(int lowerBound, int upperBound)
+        {
+            var range = Enumerable.Range(lowerBound, upperBound);
+            var sum = range.Sum();
+            return sum * sum;
         }
     }
 }
