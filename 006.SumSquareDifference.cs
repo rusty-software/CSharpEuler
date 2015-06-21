@@ -25,13 +25,19 @@ namespace Euler
         {
             Assert.AreEqual(2640, SquareSums.SumAndSquareDifference(1, 10));
         }
+
+        [TestMethod]
+        public void SumAndSquareDifference_1And100_ReturnsValue()
+        {
+            Assert.AreEqual(25164150, SquareSums.SumAndSquareDifference(1, 100));
+        }
     }
 
     internal static class SquareSums
     {
         internal static long SumAndSquareDifference(int lowerBound, int upperBound)
         {
-            return SquareOfSums(1, 10) - SumOfSquares(1, 10);
+            return SquareOfSums(lowerBound, upperBound) - SumOfSquares(lowerBound, upperBound);
         }
 
         internal static long SumOfSquares(int lowerBound, int upperBound)
