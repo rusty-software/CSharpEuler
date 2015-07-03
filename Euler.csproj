@@ -60,6 +60,7 @@
     <Compile Include="006.SumSquareDifference.cs" />
     <Compile Include="007.NthPrimeNumber.cs" />
     <Compile Include="008.LargestProduct.cs" />
+    <Compile Include="009.PythagoreanTriplet.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
