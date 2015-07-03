@@ -1,15 +1,24 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Euler
 {
     [TestClass]
-    public class UnitTest2
+    public class SumPrimesTests
     {
         [TestMethod]
-        public void SumPrimesBelow_10_Returns17()
+        public void PrimesBelow_10_ReturnsList()
         {
-            //Assert.AreEqual(17, PrimeCalculator)
+            var expected = new List<long> { 2, 3, 5, 7 };
+            CollectionAssert.AreEqual(expected, PrimeCalculator.PrimesBelow(10));
+        }
+
+        [TestMethod]
+        public void SumPrimesBelow_2M_ReturnsCorrectValue()
+        {
+            var primes = PrimeCalculator.PrimesBelow(2000000);
+            Assert.AreEqual(0, primes.Sum());
         }
     }
 }
