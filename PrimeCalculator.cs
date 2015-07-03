@@ -1,31 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Euler
 {
     internal static class PrimeCalculator
     {
+        private static bool[] MakeSieve(long max)
+        {
+            // Make an array indicating whether numbers are prime.
+            bool[] isPrime = new bool[max + 1];
+            for (long i = 2; i <= max; i++)
+            {
+                isPrime[i] = true;
+            }
+
+            // Cross out multiples.
+            for (long i = 2; i <= max; i++)
+            {
+                // See if i is prime.
+                if (isPrime[i])
+                {
+                    // Knock out multiples of i.
+                    for (long j = i * 2; j <= max; j += i)
+                    {
+                        isPrime[j] = false;
+                    }
+                }
+            }
+            return isPrime;
+        }
+
         private static List<long> primes = new List<long> { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97 };
 
         internal static List<long> PrimesBelow(long num)
         {
-            var primesBelow = new List<long>();
-            if (num <= 2)
+            var primes = new List<long>();
+            var isPrimeAt = MakeSieve(num);
+            for (var i = 2; i < num; i++)
             {
-                return primesBelow;
-            }
-
-            primesBelow.Add(2);
-
-            for (var i = 3; i < num; i += 2)
-            {
-                if (IsPrime(i))
+                if (isPrimeAt[i])
                 {
-                    primesBelow.Add(i);
+                    primes.Add(i);
                 }
             }
-
-            return primesBelow;
+            return primes;
         }
 
         internal static List<long> FactorsOf(long num)

@@ -18,7 +18,7 @@ namespace Euler
         public void SumPrimesBelow_2M_ReturnsCorrectValue()
         {
             var primes = PrimeCalculator.PrimesBelow(2000000);
-            Assert.AreEqual(0, primes.Sum());
+            Assert.AreEqual(142913828922, primes.Sum());
         }
     }
 }
