@@ -13,6 +13,13 @@ namespace Euler
             var expected = new Tuple<int, int, int>(3, 4, 5);
             Assert.AreEqual(expected, Pythagoras.Triplet(sum));
         }
+
+        [TestMethod]
+        public void Triplet_SumOf1000_ReturnsRightValue()
+        {
+            var expected = new Tuple<int, int, int>(200, 375, 425);
+            Assert.AreEqual(expected, Pythagoras.Triplet(1000));
+        }
     }
 
     internal static class Pythagoras
