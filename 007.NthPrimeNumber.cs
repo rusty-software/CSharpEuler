@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Euler
 {
@@ -39,25 +38,12 @@ namespace Euler
             while (counter < n)
             {
                 candidate += 2;
-                if (IsPrime(candidate))
+                if (PrimeCalculator.IsPrime(candidate))
                 {
                     counter++;
                 }
             }
             return candidate;
-        }
-
-        private static bool IsPrime(long num)
-        {
-            var sqrt = Math.Ceiling(Math.Sqrt(num));
-            for (var i = 2; i <= sqrt; i++)
-            {
-                if (num % i == 0)
-                {
-                    return false;
-                }
-            }
-            return true;
         }
     }
 }
